@@ -1,16 +1,14 @@
-/**
- * update the quantity of a grocery items to 100.
- * @param {Map<String, number>} map - A map of the name of a
- * grocery and its quantity
- */
+/* eslint-disable no-param-reassign */
 export default function updateUniqueItems(map) {
-  if (!(map instanceof Map)) {
-    throw new Error('Cannot process');
-  }
-  map.forEach((val, key) => {
-    if (val === 1) {
-      map.set(key, 100);
+  if (map instanceof Map) {
+    for (const [key, value] of map) {
+      if (value === 1) {
+        map.set(key, 100);
+      }
     }
-  });
-}
 
+    return map;
+  }
+
+  throw new Error('Cannot process');
+}
